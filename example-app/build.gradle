@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 27
+
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    def appCompatVersion = '27.1.1'
+
+    implementation project(path: ':example-lib', configuration: 'default')
+
+    implementation "com.android.support:appcompat-v7:$appCompatVersion"
+    implementation "com.android.support:recyclerview-v7:$appCompatVersion"
+}
