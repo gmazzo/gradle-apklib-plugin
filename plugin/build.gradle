@@ -1,0 +1,45 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id 'maven'
+    id 'com.gradle.plugin-publish' version '0.9.7'
+}
+
+apply from: '../buildShared.gradle'
+
+archivesBaseName = 'gradle-library-apk-plugin'
+
+def pluginId = 'com.github.gmazzo.library-apk'
+def repoName = 'gradle-library-apk-plugin'
+def repoDesc = 'An Android-Gradle plugin for generate DEX classes and a APK from a Library module.'
+def repoUrl = "https://github.com/gmazzo/$repoName"
+def repoTags = ['android', 'gradle', 'library', 'dex', 'aar', 'apk']
+
+install {
+    repositories.mavenInstaller {
+        pom.groupId = "gradle.plugin.gmazzo"
+    }
+}
+
+gradlePlugin {
+    plugins {
+        fontawesome {
+            id = pluginId
+            implementationClass = 'com.github.gmazzo.gradle.plugins.LibAPKPlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = repoUrl
+    vcsUrl = repoUrl
+    description = repoDesc
+    tags = repoTags
+
+    plugins {
+        fontawesome {
+            id = pluginId
+            displayName = 'Gradle Library APK Plugin'
+        }
+    }
+}
