@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.gmazzo.apklib'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 27
+    }
+
+    flavorDimensions 'type'
+    productFlavors {
+        core {
+            dimension 'type'
+        }
+        impl {
+            dimension 'type'
+        }
+    }
+}
+
+dependencies {
+    def autoServiceDep = 'com.google.auto.service:auto-service:1.0-rc4'
+    annotationProcessor autoServiceDep
+    compileOnly autoServiceDep
+}

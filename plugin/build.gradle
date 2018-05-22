@@ -7,10 +7,10 @@ plugins {
 
 apply from: '../buildShared.gradle'
 
-archivesBaseName = 'gradle-library-apk-plugin'
+archivesBaseName = 'gradle-apklib-plugin'
 
-def pluginId = 'com.github.gmazzo.library-apk'
-def repoName = 'gradle-library-apk-plugin'
+def pluginId = 'com.github.gmazzo.apklib'
+def repoName = 'gradle-apklib-plugin'
 def repoDesc = 'An Android-Gradle plugin for generate DEX classes and a APK from a Library module.'
 def repoUrl = "https://github.com/gmazzo/$repoName"
 def repoTags = ['android', 'gradle', 'library', 'dex', 'aar', 'apk']

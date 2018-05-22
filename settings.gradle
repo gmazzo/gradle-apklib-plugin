@@ -1,7 +1,7 @@
-include ':example'
+include ':example-lib'
 
 includeBuild('plugin') {
     dependencySubstitution {
-        substitute module('com.github.gmazzo:gradle-library-apk-plugin') with project(':')
+        substitute module('com.github.gmazzo:gradle-apklib-plugin') with project(':')
     }
 }
