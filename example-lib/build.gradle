@@ -11,21 +11,17 @@ android {
         targetSdkVersion 27
     }
 
-    flavorDimensions 'type'
+    flavorDimensions 'default'
     productFlavors {
-        core {
-            dimension 'type'
-        }
-        impl {
-            dimension 'type'
-        }
+        core
+        impl
     }
 }
 
 dependencies {
     def autoServiceDep = 'com.google.auto.service:auto-service:1.0-rc4'
-    annotationProcessor autoServiceDep
-    compileOnly autoServiceDep
+    implCompileOnly autoServiceDep
+    implAnnotationProcessor autoServiceDep
 
     kaptImpl "com.google.dagger:dagger-compiler:$daggerVersion"
 

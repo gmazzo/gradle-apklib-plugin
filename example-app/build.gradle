@@ -12,6 +12,8 @@ android {
 
         versionCode 1
         versionName "1.0"
+
+        missingDimensionStrategy 'default', 'core'
     }
 
     buildTypes {
@@ -29,10 +31,39 @@ android {
 
 dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
 
-    implementation project(path: ':example-lib', configuration: 'default')
+    implementation project(':example-lib')
     implementation "com.android.support:appcompat-v7:$appCompatVersion"
     implementation "com.android.support:recyclerview-v7:$appCompatVersion"
-    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+}
+
+def libProject = evaluationDependsOn(':example-lib')
+def libTask = libProject.tasks['bundleLibApkImplDebug']
+
+task importLibApkAsAsset(type: Copy) { self ->
+    from libTask.outputs
+    into file("$buildDir/generated/assets/libapk")
+
+    android {
+        sourceSets.main.assets.srcDir(outputs)
+
+        applicationVariants.all { variant ->
+            variant.mergeAssets.dependsOn self
+        }
+    }
+}
+
+task generateLibApkBuildConfigField { self ->
+    doLast {
+        android.defaultConfig.buildConfigField 'String', 'APKLIB_FILENAME', "\"${libTask.outputs.files.singleFile.name}\""
+    }
+
+    dependsOn libTask
+
+    android.applicationVariants.all { variant ->
+        variant.generateBuildConfig.dependsOn self
+    }
 }
