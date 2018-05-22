@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
@@ -18,13 +21,18 @@ android {
         }
     }
 
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
-    def appCompatVersion = '27.1.1'
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
     implementation project(path: ':example-lib', configuration: 'default')
-
     implementation "com.android.support:appcompat-v7:$appCompatVersion"
     implementation "com.android.support:recyclerview-v7:$appCompatVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 }

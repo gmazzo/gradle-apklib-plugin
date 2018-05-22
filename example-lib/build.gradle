@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.gmazzo.apklib'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 27
@@ -24,4 +26,10 @@ dependencies {
     def autoServiceDep = 'com.google.auto.service:auto-service:1.0-rc4'
     annotationProcessor autoServiceDep
     compileOnly autoServiceDep
+
+    kaptImpl "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    implImplementation "com.google.dagger:dagger:$daggerVersion"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 }
