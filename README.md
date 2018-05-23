@@ -16,9 +16,19 @@ Note: This tool will allow you to push updates of Java (Android) code and Java r
 ## Usage
 On your `build.gradle` add:
 ```groovy
-plugins {
-    id 'com.github.gmazzo.apklib' version '0.1'
+buildscript {
+  repositories {
+    maven {
+      url 'https://plugins.gradle.org/m2/'
+    }
+  }
+  dependencies {
+    classpath 'gradle.plugin.com.github.gmazzo:plugin:0.1'
+  }
 }
+
+apply plugin: 'com.android.library'
+apply plugin: "com.github.gmazzo.apklib"
 ```
 Check [https://plugins.gradle.org/plugin/com.github.gmazzo.apklib](https://plugins.gradle.org/plugin/com.github.gmazzo.apklib) for other instructions
 
