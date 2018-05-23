@@ -33,7 +33,7 @@ dependencies {
     kaptImpl "com.google.dagger:dagger-compiler:$daggerVersion"
 
     implImplementation "com.google.dagger:dagger:$daggerVersion"
+    implImplementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 
     implementation "com.android.support:support-annotations:$appCompatVersion"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 }

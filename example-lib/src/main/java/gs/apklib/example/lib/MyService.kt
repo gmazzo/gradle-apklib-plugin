@@ -1,4 +1,4 @@
-package gs.apklib.example.module
+package gs.apklib.example.lib
 
 import android.support.annotation.Keep
 

@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.Reusable
 import dalvik.system.DexClassLoader
-import gs.apklib.example.module.EntryPoint
+import gs.apklib.example.lib.EntryPoint
 import java.io.File
 import java.util.*
 

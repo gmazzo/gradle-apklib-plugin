@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dagger.android.support.DaggerAppCompatActivity
-import gs.apklib.example.module.MyService
+import gs.apklib.example.lib.MyService
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.recycler_item.view.*
 import javax.inject.Inject
