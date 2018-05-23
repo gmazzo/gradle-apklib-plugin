@@ -23,7 +23,7 @@ install {
 
 gradlePlugin {
     plugins {
-        fontawesome {
+        apklib {
             id = pluginId
             implementationClass = 'com.github.gmazzo.gradle.plugins.LibAPKPlugin'
         }
@@ -37,9 +37,14 @@ pluginBundle {
     tags = repoTags
 
     plugins {
-        fontawesome {
+        apklib {
             id = pluginId
             displayName = 'Gradle Library APK Plugin'
         }
+    }
+
+    mavenCoordinates {
+        groupId = project.group
+        artifactId = project.archivesBaseName
     }
 }

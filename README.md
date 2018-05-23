@@ -23,7 +23,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath 'gradle.plugin.com.github.gmazzo:plugin:0.1'
+    classpath 'com.github.gmazzo:gradle-apklib-plugin:0.2'
   }
 }
 
