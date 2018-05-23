@@ -2,5 +2,5 @@
 -renamesourcefileattribute SourceFile
 
 -flattenpackagehierarchy ex_lib
--adaptresourcefilecontents
+-adaptresourcefilecontents META-INF/services/**
 -keep,allowobfuscation class * extends @android.support.annotation.Keep *
