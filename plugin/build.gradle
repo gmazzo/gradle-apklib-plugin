@@ -15,6 +15,10 @@ def repoDesc = 'An Android-Gradle plugin for generate DEX classes and a APK from
 def repoUrl = "https://github.com/gmazzo/$repoName"
 def repoTags = ['android', 'gradle', 'library', 'dex', 'aar', 'apk']
 
+dependencies {
+    compileOnly 'com.android.tools.build:gradle:3.1.2'
+}
+
 install {
     repositories.mavenInstaller {
         pom.groupId = "gradle.plugin.gmazzo"
