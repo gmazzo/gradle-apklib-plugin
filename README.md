@@ -1,6 +1,8 @@
 # gradle-apklib-plugin
 An Android-Gradle plugin for generate DEX classes and a APK from a Library module.
 
+[![Plugins Site](https://img.shields.io/maven-metadata/v/https/plugins.gradle.org/m2/com/github/gmazzo/gradle-apklib-plugin/maven-metadata.xml.svg?label=gradle-plugins)](https://plugins.gradle.org/plugin/com.github.gmazzo.apklib)
+
 ## Why?
 Well, if you reach this page, you are very likely looking for this.
 In my case, I was on the need to perform hot-code Android updates pushed from my server without forcing the users to update the app from the *PlayStore*.
@@ -22,7 +24,6 @@ plugins {
 
 apply plugin: 'com.android.library'
 ```
-Check [https://plugins.gradle.org/plugin/com.github.gmazzo.apklib](https://plugins.gradle.org/plugin/com.github.gmazzo.apklib) for other instructions
 
 After applying the plugin, a task `bundleLibApk` per variant will be added to your build.
 On a default configuration will be `bundleLibApkDebug` and `bundleLibApkRelease`.
